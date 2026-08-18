@@ -44,28 +44,28 @@ function CategoriesAdmin() {
     <div>
       <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:items-center sm:justify-between mb-6">
         <div className="min-w-0">
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-[#2d2029]">Categories</h1>
-          <p className="mt-1 text-sm text-[#8b6b73]">Organize your cakes into browsable sections.</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-[#2a0b12]">Categories</h1>
+          <p className="mt-1 text-sm text-[#8a5c64]">Organize your cakes into browsable sections.</p>
         </div>
         <button onClick={() => { setEditing(null); setShowForm(true); }} className="btn-primary text-sm shrink-0">+ New category</button>
       </header>
 
-      <div className="bg-white rounded-3xl border border-[#f0d5dc] overflow-hidden">
+      <div className="bg-white rounded-3xl border border-[#f0d8dc] overflow-hidden">
         {(cats.data ?? []).map((c, idx) => (
           <div key={c.id} className={`flex items-center gap-4 p-4 ${idx > 0 ? "border-t border-[#faf0f2]" : ""}`}>
-            <div className="w-10 h-10 rounded-2xl bg-[#fef5f7] flex items-center justify-center text-sm font-bold text-[#e88aab] shrink-0">{c.name.charAt(0).toUpperCase()}</div>
+            <div className="w-10 h-10 rounded-2xl bg-[#fdf6f7] flex items-center justify-center text-sm font-bold text-[#8e0b21] shrink-0">{c.name.charAt(0).toUpperCase()}</div>
             <div className="min-w-0 flex-1">
-              <div className="font-semibold text-[#2d2029] truncate">{c.name}</div>
-              <div className="text-xs text-[#8b6b73] truncate">/{c.slug} · order {c.sort_order}</div>
+              <div className="font-semibold text-[#2a0b12] truncate">{c.name}</div>
+              <div className="text-xs text-[#8a5c64] truncate">/{c.slug} · order {c.sort_order}</div>
             </div>
-            <button onClick={() => toggleVis.mutate(c)} className={`hidden sm:inline text-xs px-3 py-1.5 rounded-full font-semibold ${c.visible ? "bg-[#ddf8f8] text-[#2a6b6b]" : "bg-[#faf0f2] text-[#8b6b73]"}`}>
+            <button onClick={() => toggleVis.mutate(c)} className={`hidden sm:inline text-xs px-3 py-1.5 rounded-full font-semibold ${c.visible ? "bg-[#fbeef0] text-[#2a6b6b]" : "bg-[#faf0f2] text-[#8a5c64]"}`}>
               {c.visible ? "Visible" : "Hidden"}
             </button>
-            <button onClick={() => { setEditing(c); setShowForm(true); }} className="rounded-full px-3 py-1.5 text-xs font-semibold bg-[#fadadd]/40 hover:bg-[#fadadd]">Edit</button>
+            <button onClick={() => { setEditing(c); setShowForm(true); }} className="rounded-full px-3 py-1.5 text-xs font-semibold bg-[#f7dce1]/40 hover:bg-[#f7dce1]">Edit</button>
             <button onClick={() => confirm(`Delete "${c.name}"?`) && del.mutate(c.id)} className="rounded-full px-3 py-1.5 text-xs font-semibold text-red-700 bg-red-50 hover:bg-red-100">Delete</button>
           </div>
         ))}
-        {cats.data?.length === 0 && <div className="p-8 text-center text-[#8b6b73]">No categories yet.</div>}
+        {cats.data?.length === 0 && <div className="p-8 text-center text-[#8a5c64]">No categories yet.</div>}
       </div>
 
       {showForm && (
@@ -112,32 +112,32 @@ function CategoryForm({ category, onClose, onSaved }: { category: Category | nul
   return (
     <div onClick={(e) => e.target === e.currentTarget && onClose()}
       className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
-      <form onSubmit={submit} className="w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d5dc] shadow-[var(--shadow-elegant)]">
+      <form onSubmit={submit} className="w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d8dc] shadow-[var(--shadow-elegant)]">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-xl font-bold">{category ? "Edit" : "New"} category</h2>
           <button type="button" onClick={onClose} aria-label="Close" className="w-9 h-9 rounded-full bg-[#faf0f2]">×</button>
         </div>
         <div className="space-y-4">
           <div>
-            <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">Name</label>
+            <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">Name</label>
             <input required value={values.name}
               onChange={(e) => setValues({ ...values, name: e.target.value, slug: values.slug || e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") })}
-              className="mt-1.5 w-full rounded-2xl border border-[#f0d5dc] px-4 py-3 outline-none focus:border-[#f5a1ad]" />
+              className="mt-1.5 w-full rounded-2xl border border-[#f0d8dc] px-4 py-3 outline-none focus:border-[#c2183a]" />
           </div>
           <div>
-            <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">Slug</label>
+            <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">Slug</label>
             <input required value={values.slug} onChange={(e) => setValues({ ...values, slug: e.target.value })}
-              className="mt-1.5 w-full rounded-2xl border border-[#f0d5dc] px-4 py-3 outline-none focus:border-[#f5a1ad]" />
+              className="mt-1.5 w-full rounded-2xl border border-[#f0d8dc] px-4 py-3 outline-none focus:border-[#c2183a]" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">Sort order</label>
+              <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">Sort order</label>
               <input type="number" min={0} value={values.sort_order}
                 onChange={(e) => setValues({ ...values, sort_order: Number(e.target.value) })}
-                className="mt-1.5 w-full rounded-2xl border border-[#f0d5dc] px-4 py-3 outline-none focus:border-[#f5a1ad]" />
+                className="mt-1.5 w-full rounded-2xl border border-[#f0d8dc] px-4 py-3 outline-none focus:border-[#c2183a]" />
             </div>
             <label className="flex items-end gap-2 text-sm pb-3">
-              <input type="checkbox" checked={values.visible} onChange={(e) => setValues({ ...values, visible: e.target.checked })} className="w-4 h-4 accent-[#f5a1ad]" />
+              <input type="checkbox" checked={values.visible} onChange={(e) => setValues({ ...values, visible: e.target.checked })} className="w-4 h-4 accent-[#c2183a]" />
               Visible on site
             </label>
           </div>

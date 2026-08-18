@@ -61,8 +61,8 @@ function SettingsAdmin() {
         instagram_url: data.instagram_url ?? "",
         tiktok_url: data.tiktok_url ?? "",
         telegram_url: data.telegram_url ?? "",
-        primary_color: data.primary_color ?? "#f5a1ad",
-        accent_color: data.accent_color ?? "#ddf8f8",
+        primary_color: data.primary_color ?? "#c2183a",
+        accent_color: data.accent_color ?? "#fbeef0",
       });
     }
   }, [data]);
@@ -76,7 +76,7 @@ function SettingsAdmin() {
     return () => { cancelled = true; };
   }, [values?.hero_image_url]);
 
-  if (isLoading || !values || !data) return <div className="text-[#8b6b73]">Loading…</div>;
+  if (isLoading || !values || !data) return <div className="text-[#8a5c64]">Loading…</div>;
 
 
 
@@ -108,8 +108,8 @@ function SettingsAdmin() {
   return (
     <div>
 
-      <h1 className="font-display text-3xl md:text-4xl font-bold text-[#2d2029]">Site settings</h1>
-      <p className="mt-1 text-sm text-[#8b6b73]">Every change here updates the public site instantly.</p>
+      <h1 className="font-display text-3xl md:text-4xl font-bold text-[#2a0b12]">Site settings</h1>
+      <p className="mt-1 text-sm text-[#8a5c64]">Every change here updates the public site instantly.</p>
 
       <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
         {[
@@ -120,22 +120,22 @@ function SettingsAdmin() {
           { k: "password", label: "Password" },
         ].map((t) => (
           <button key={t.k} onClick={() => setTab(t.k as any)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ${tab === t.k ? "bg-gradient-to-r from-[#fadadd] to-[#ddf8f8] text-[#2d2029]" : "bg-white border border-[#f0d5dc] text-[#8b6b73]"}`}>
+            className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ${tab === t.k ? "bg-gradient-to-r from-[#f7dce1] to-[#fbeef0] text-[#2a0b12]" : "bg-white border border-[#f0d8dc] text-[#8a5c64]"}`}>
             {t.label}
           </button>
         ))}
       </div>
 
       {tab === "password" ? <PasswordChange /> : (
-        <form onSubmit={submit} className="mt-6 bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d5dc] space-y-5">
+        <form onSubmit={submit} className="mt-6 bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d8dc] space-y-5">
           {tab === "brand" && (
             <>
               <Field label="Shop name"><input value={V.shop_name} onChange={(e) => set("shop_name", e.target.value)} className={inputCls} /></Field>
               <Field label="Tagline"><input value={V.tagline} onChange={(e) => set("tagline", e.target.value)} className={inputCls} /></Field>
               <Field label="About text"><textarea rows={5} value={V.about_text} onChange={(e) => set("about_text", e.target.value)} className={inputCls + " resize-none"} /></Field>
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Primary color"><input type="color" value={V.primary_color ?? "#f5a1ad"} onChange={(e) => set("primary_color", e.target.value)} className="w-full h-12 rounded-2xl border border-[#f0d5dc]" /></Field>
-                <Field label="Accent color"><input type="color" value={V.accent_color ?? "#ddf8f8"} onChange={(e) => set("accent_color", e.target.value)} className="w-full h-12 rounded-2xl border border-[#f0d5dc]" /></Field>
+                <Field label="Primary color"><input type="color" value={V.primary_color ?? "#c2183a"} onChange={(e) => set("primary_color", e.target.value)} className="w-full h-12 rounded-2xl border border-[#f0d8dc]" /></Field>
+                <Field label="Accent color"><input type="color" value={V.accent_color ?? "#fbeef0"} onChange={(e) => set("accent_color", e.target.value)} className="w-full h-12 rounded-2xl border border-[#f0d8dc]" /></Field>
               </div>
             </>
           )}
@@ -145,10 +145,10 @@ function SettingsAdmin() {
               <Field label="Hero subtitle"><input value={V.hero_subtitle} onChange={(e) => set("hero_subtitle", e.target.value)} className={inputCls} /></Field>
               <Field label="Hero image">
                 <div className="flex items-center gap-4">
-                  <div className="w-32 h-32 rounded-2xl overflow-hidden bg-[#fef5f7] border border-[#f0d5dc] shrink-0">
+                  <div className="w-32 h-32 rounded-2xl overflow-hidden bg-[#fdf6f7] border border-[#f0d8dc] shrink-0">
                     {heroPreview ? <img src={heroPreview} alt="hero" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[10px] uppercase tracking-wider text-[#b39aa1]">No image</div>}
                   </div>
-                  <label className="flex-1 rounded-2xl border-2 border-dashed border-[#f0d5dc] p-4 text-center cursor-pointer hover:border-[#f5a1ad] text-sm text-[#8b6b73]">
+                  <label className="flex-1 rounded-2xl border-2 border-dashed border-[#f0d8dc] p-4 text-center cursor-pointer hover:border-[#c2183a] text-sm text-[#8a5c64]">
                     <input type="file" accept="image/*" onChange={handleHeroFile} className="hidden" />
                     Click to upload · JPG, PNG, WebP
                   </label>
@@ -191,12 +191,12 @@ function SettingsAdmin() {
   );
 }
 
-const inputCls = "w-full rounded-2xl border border-[#f0d5dc] px-4 py-3 outline-none focus:border-[#f5a1ad] text-sm";
+const inputCls = "w-full rounded-2xl border border-[#f0d8dc] px-4 py-3 outline-none focus:border-[#c2183a] text-sm";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">{label}</label>
+      <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">{label}</label>
       <div className="mt-1.5">{children}</div>
     </div>
   );
@@ -234,7 +234,7 @@ function PasswordChange() {
   }
 
   return (
-    <form onSubmit={submit} className="mt-6 bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d5dc] space-y-4 max-w-md">
+    <form onSubmit={submit} className="mt-6 bg-white rounded-3xl p-6 sm:p-8 border border-[#f0d8dc] space-y-4 max-w-md">
       <h3 className="font-display text-xl font-bold">Change password</h3>
       <Field label="Current password"><input type="password" required value={current} onChange={(e) => setCurrent(e.target.value)} className={inputCls} /></Field>
       <Field label="New password"><input type="password" required minLength={8} value={next} onChange={(e) => setNext(e.target.value)} className={inputCls} /></Field>

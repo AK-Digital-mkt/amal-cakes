@@ -41,21 +41,21 @@ function AdminLayout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fef5f7]">
-        <div className="text-[#8b6b73]">Loading…</div>
+      <div className="min-h-screen flex items-center justify-center bg-[#fdf6f7]">
+        <div className="text-[#8a5c64]">Loading…</div>
       </div>
     );
   }
 
   if (!admin) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "linear-gradient(135deg, #ffffff, #fef5f7)" }}>
-        <div className="max-w-md text-center bg-white rounded-3xl p-8 shadow-[var(--shadow-soft)] border border-[#f0d5dc]">
-          <div className="mx-auto w-14 h-14 rounded-2xl bg-[#fadadd]/60 flex items-center justify-center mb-4">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#e88aab]"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "linear-gradient(135deg, #ffffff, #fdf6f7)" }}>
+        <div className="max-w-md text-center bg-white rounded-3xl p-8 shadow-[var(--shadow-soft)] border border-[#f0d8dc]">
+          <div className="mx-auto w-14 h-14 rounded-2xl bg-[#f7dce1]/60 flex items-center justify-center mb-4">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8e0b21]"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
-          <h1 className="font-display text-2xl font-bold text-[#2d2029]">Access denied</h1>
-          <p className="mt-2 text-sm text-[#8b6b73]">
+          <h1 className="font-display text-2xl font-bold text-[#2a0b12]">Access denied</h1>
+          <p className="mt-2 text-sm text-[#8a5c64]">
             You are signed in, but this account isn't an admin. Ask the shop owner to grant you access.
           </p>
           <div className="mt-6 flex gap-2 justify-center">
@@ -70,10 +70,10 @@ function AdminLayout() {
   return (
     <div className="min-h-screen bg-[#faf5f6] flex">
       {/* Sidebar (desktop) */}
-      <aside className="hidden lg:flex fixed inset-y-0 left-0 w-64 flex-col bg-white border-r border-[#f0d5dc] p-6">
+      <aside className="hidden lg:flex fixed inset-y-0 left-0 w-64 flex-col bg-white border-r border-[#f0d8dc] p-6">
         <Link to="/" className="flex items-center gap-2 mb-8">
           <img src={LOGO_URL} alt="" className="w-8 h-8 rounded" />
-          <span className="font-display text-xl font-semibold text-[#2d2029]">Selam Admin</span>
+          <span className="font-display text-xl font-semibold text-[#2a0b12]">Amal Admin</span>
         </Link>
         <nav className="flex-1 space-y-1">
           {nav.map((n) => (
@@ -81,8 +81,8 @@ function AdminLayout() {
               key={n.to}
               to={n.to as any}
               activeOptions={n.exact ? { exact: true } : undefined}
-              activeProps={{ className: "bg-gradient-to-r from-[#fadadd] to-[#ddf8f8] text-[#2d2029] font-semibold" }}
-              inactiveProps={{ className: "text-[#8b6b73] hover:bg-[#fef5f7]" }}
+              activeProps={{ className: "bg-gradient-to-r from-[#f7dce1] to-[#fbeef0] text-[#2a0b12] font-semibold" }}
+              inactiveProps={{ className: "text-[#8a5c64] hover:bg-[#fdf6f7]" }}
               className="block px-4 py-2.5 rounded-2xl transition-colors text-sm"
             >
               {n.label}
@@ -93,25 +93,25 @@ function AdminLayout() {
       </aside>
 
       {/* Mobile top bar */}
-      <header className="lg:hidden fixed top-0 inset-x-0 z-30 bg-white/90 backdrop-blur border-b border-[#f0d5dc] px-4 h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+      <header className="lg:hidden fixed top-0 inset-x-0 z-30 bg-white/90 backdrop-blur border-b border-[#f0d8dc] px-4 h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
         <Link to="/" className="flex min-w-0 items-center gap-2">
           <img src={LOGO_URL} alt="" className="w-7 h-7 shrink-0 rounded" />
-          <span className="font-display text-lg font-semibold truncate">Selam Admin</span>
+          <span className="font-display text-lg font-semibold truncate">Amal Admin</span>
         </Link>
-        <button onClick={() => setMobileNav(!mobileNav)} className="w-10 h-10 shrink-0 rounded-xl bg-[#fadadd]/40 flex items-center justify-center text-lg" aria-label="Menu">
+        <button onClick={() => setMobileNav(!mobileNav)} className="w-10 h-10 shrink-0 rounded-xl bg-[#f7dce1]/40 flex items-center justify-center text-lg" aria-label="Menu">
           {mobileNav ? "×" : "☰"}
         </button>
       </header>
       {mobileNav && (
-        <div className="lg:hidden fixed top-16 inset-x-0 z-30 bg-white border-b border-[#f0d5dc] p-4 space-y-1 animate-fade-up">
+        <div className="lg:hidden fixed top-16 inset-x-0 z-30 bg-white border-b border-[#f0d8dc] p-4 space-y-1 animate-fade-up">
           {nav.map((n) => (
             <Link key={n.to} to={n.to as any} activeOptions={n.exact ? { exact: true } : undefined}
-              activeProps={{ className: "bg-[#fadadd]/50 font-semibold" }}
-              className="block px-4 py-2.5 rounded-2xl text-[#2d2029] text-sm">
+              activeProps={{ className: "bg-[#f7dce1]/50 font-semibold" }}
+              className="block px-4 py-2.5 rounded-2xl text-[#2a0b12] text-sm">
               {n.label}
             </Link>
           ))}
-          <button onClick={handleSignOut} className="w-full text-left block px-4 py-2.5 rounded-2xl text-[#8b6b73] text-sm">
+          <button onClick={handleSignOut} className="w-full text-left block px-4 py-2.5 rounded-2xl text-[#8a5c64] text-sm">
             Sign out
           </button>
         </div>

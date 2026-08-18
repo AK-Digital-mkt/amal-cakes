@@ -91,13 +91,13 @@ function DigitalMenu() {
   const heroImg = settings.data?.hero_display_url ?? heroFallback;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#fef5f7] to-[#f0fafa]">
+    <div className="min-h-screen bg-gradient-to-b from-white via-[#fdf6f7] to-[#fbf1f3]">
       <div className="mx-auto w-full max-w-[520px] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl relative">
         <Hero settings={settings.data} heroImg={heroImg} />
         <CategoryPills categories={visibleCats} activeCat={activeCat} setActiveCat={setActiveCat} />
         <MenuList items={filtered} activeCat={activeCat} categories={visibleCats} onOpen={setOpenItem} />
         {filtered.length === 0 && !products.isLoading && (
-          <div className="text-center py-16 text-[#8b6b73] px-6">
+          <div className="text-center py-16 text-[#8a5c64] px-6">
             <img src={LOGO_URL} alt="" className="w-10 h-10 mx-auto mb-3 opacity-60" />
             <div>No items in this category yet.</div>
           </div>
@@ -136,15 +136,15 @@ function Hero({ settings, heroImg }: { settings: any; heroImg: string }) {
       <div ref={bgRef} className="absolute inset-0">
         <img src={heroImg} alt="Signature cake" className="w-full h-full object-cover" />
       </div>
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(250,218,221,0.55) 55%, rgba(221,248,248,0.85) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(247,220,225,0.55) 55%, rgba(253,246,247,0.85) 100%)" }} />
 
       <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-center z-10">
         <div className="flex items-center gap-2 glass px-3 py-2 rounded-full">
           <img src={LOGO_URL} alt="" className="w-5 h-5 sm:w-6 sm:h-6 rounded-sm" />
-          <span className="font-display font-semibold text-sm sm:text-base">{settings?.shop_name ?? "Selam"}</span>
+          <span className="font-display font-semibold text-sm sm:text-base">{settings?.shop_name ?? "Amal"}</span>
         </div>
         <Link to="/auth" className="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-105 transition-transform" aria-label="Admin">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8b6b73]">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8a5c64]">
             <rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
         </Link>
@@ -152,13 +152,13 @@ function Hero({ settings, heroImg }: { settings: any; heroImg: string }) {
 
       <div className="absolute bottom-8 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 z-10 max-w-3xl">
         <div className="inline-flex items-center gap-2 glass px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
-          <span className="w-2 h-2 rounded-full bg-[#f5a1ad] animate-pulse shadow-[0_0_10px_#f5a1ad]" />
+          <span className="w-2 h-2 rounded-full bg-[#c2183a] animate-pulse shadow-[0_0_10px_#c2183a]" />
           {settings?.hero_subtitle ?? "Handcrafted with love"}
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-[#2d2029]">
-          {settings?.hero_title ?? "Selam Cake Shop"}
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-[#2a0b12]">
+          {settings?.hero_title ?? "Amal Cakes &amp; Catering"}
         </h1>
-        <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-[#5a4a52] font-medium">{settings?.tagline ?? "Sweetness, delicately made."}</p>
+        <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-[#5a3a41] font-medium">{settings?.tagline ?? "Sweetness, delicately made."}</p>
       </div>
     </section>
   );
@@ -173,9 +173,9 @@ function CategoryPills({ categories, activeCat, setActiveCat }: any) {
         return (
           <button key={c.id} onClick={() => setActiveCat(c.id)}
             className={`whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all flex-shrink-0 ${
-              active ? "text-white shadow-[0_6px_18px_-4px_#f5c1c8] scale-[1.03]" : "bg-white text-[#8b6b73] border border-[#f0d5dc] hover:bg-[#ddf8f8]/40"
+              active ? "text-white shadow-[0_6px_18px_-4px_#e9aeb8] scale-[1.03]" : "bg-white text-[#8a5c64] border border-[#f0d8dc] hover:bg-[#fbeef0]/40"
             }`}
-            style={active ? { background: "linear-gradient(135deg, #f5a1ad 0%, #e88aab 100%)" } : {}}>
+            style={active ? { background: "linear-gradient(135deg, #c2183a 0%, #8e0b21 100%)" } : {}}>
             {c.name}
           </button>
         );
@@ -201,18 +201,18 @@ function MenuList({ items, activeCat, categories, onOpen }: {
         return (
           <div key={item.id} className="contents">
             {showHeading && (
-              <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-2 pt-4 pb-1 text-xs font-bold uppercase tracking-[1.5px] text-[#8b6b73]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#f5a1ad]" />
+              <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-2 pt-4 pb-1 text-xs font-bold uppercase tracking-[1.5px] text-[#8a5c64]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c2183a]" />
                 {catName(item.category_id)}
               </div>
             )}
             <article
               onClick={() => !soldOut && onOpen(item)}
               aria-disabled={soldOut}
-              className={`group bg-white rounded-3xl p-2.5 border border-[#f0d5dc] transition-all duration-300 animate-fade-up ${
+              className={`group bg-white rounded-3xl p-2.5 border border-[#f0d8dc] transition-all duration-300 animate-fade-up ${
                 soldOut
                   ? "opacity-60 cursor-not-allowed grayscale-[0.4]"
-                  : "cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(233,30,99,0.15)] hover:border-[#f5a1ad]/40"
+                  : "cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(160,10,40,0.15)] hover:border-[#c2183a]/40"
               }`}
               style={{ animationDelay: `${i * 0.04}s`, animationFillMode: "both" }}>
               <div className="relative overflow-hidden rounded-2xl aspect-square">
@@ -225,29 +225,29 @@ function MenuList({ items, activeCat, categories, onOpen }: {
                   </div>
                 )}
                 {!soldOut && item.featured && (
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md text-[10px] font-extrabold tracking-[1px] text-white backdrop-blur-sm" style={{ background: "linear-gradient(135deg, #f5a1ad, #e88aab)" }}>
+                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md text-[10px] font-extrabold tracking-[1px] text-white backdrop-blur-sm" style={{ background: "linear-gradient(135deg, #c2183a, #8e0b21)" }}>
                     FEATURED
                   </span>
                 )}
                 {!soldOut && !item.featured && (
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold text-[#2d2029] bg-white/85 backdrop-blur-sm">
+                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold text-[#2a0b12] bg-white/85 backdrop-blur-sm">
                     {item.price}
                   </span>
                 )}
               </div>
               <div className="px-1 pt-3 pb-1 flex flex-col">
-                <div className="text-[14px] font-bold leading-tight text-[#2d2029] line-clamp-2">
+                <div className="text-[14px] font-bold leading-tight text-[#2a0b12] line-clamp-2">
                   {item.name}
                 </div>
-                <div className="text-[11px] text-[#8b6b73] mt-1.5 leading-snug line-clamp-2">{item.description}</div>
+                <div className="text-[11px] text-[#8a5c64] mt-1.5 leading-snug line-clamp-2">{item.description}</div>
                 <div className="mt-2.5 flex items-center justify-between">
-                  <div className="text-[15px] font-extrabold text-[#2d2029]">
-                    <span className="text-[11px] font-bold text-[#8b6b73] mr-1">Birr</span>{item.price}
+                  <div className="text-[15px] font-extrabold text-[#2a0b12]">
+                    <span className="text-[11px] font-bold text-[#8a5c64] mr-1">KSh</span>{item.price}
                   </div>
                   {soldOut ? (
                     <span className="text-[10px] font-bold uppercase tracking-wider text-red-600">Unavailable</span>
                   ) : (
-                    <span className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm shadow-[0_6px_14px_-4px_#f5c1c8] group-hover:scale-110 transition-transform" style={{ background: "linear-gradient(135deg, #f5a1ad, #e88aab)" }}>
+                    <span className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm shadow-[0_6px_14px_-4px_#e9aeb8] group-hover:scale-110 transition-transform" style={{ background: "linear-gradient(135deg, #c2183a, #8e0b21)" }}>
                       →
                     </span>
                   )}
@@ -280,7 +280,7 @@ function ModalShell({ children, onClose }: any) {
   return (
     <div onClick={(e) => e.target === e.currentTarget && onClose()}
       className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-up" style={{ animationDuration: "0.25s" }}>
-      <div className="w-full sm:max-w-[560px] md:max-w-[640px] sm:mb-6 bg-white rounded-t-[28px] sm:rounded-[28px] border border-[#f0d5dc] shadow-[0_-8px_40px_rgba(233,30,99,0.15)] max-h-[90vh] overflow-y-auto">
+      <div className="w-full sm:max-w-[560px] md:max-w-[640px] sm:mb-6 bg-white rounded-t-[28px] sm:rounded-[28px] border border-[#f0d8dc] shadow-[0_-8px_40px_rgba(160,10,40,0.15)] max-h-[90vh] overflow-y-auto">
         {children}
       </div>
     </div>
@@ -292,25 +292,25 @@ function PaymentModal({ methods, onClose, onCopy }: any) {
   return (
     <ModalShell onClose={onClose}>
       <div className="p-7 pb-10 relative">
-        <button onClick={onClose} aria-label="Close" className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#f8e1e7] hover:bg-[#f5a1ad] hover:text-white text-[#8b6b73] flex items-center justify-center">×</button>
-        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-[#fadadd]/50 border border-[#f5a1ad]/30 text-[#e88aab]">
+        <button onClick={onClose} aria-label="Close" className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#f8e1e7] hover:bg-[#c2183a] hover:text-white text-[#8a5c64] flex items-center justify-center">×</button>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-[#f7dce1]/50 border border-[#c2183a]/30 text-[#8e0b21]">
           <NavIcon name="pay" />
         </div>
-        <h2 className="font-display text-2xl font-bold text-[#2d2029]">Payment Information</h2>
-        <p className="text-sm text-[#8b6b73] mt-1.5 mb-6 leading-relaxed">Accepted payment methods for your order</p>
+        <h2 className="font-display text-2xl font-bold text-[#2a0b12]">Payment Information</h2>
+        <p className="text-sm text-[#8a5c64] mt-1.5 mb-6 leading-relaxed">Accepted payment methods for your order</p>
         <div className="space-y-3">
           {enabled.map((m: any) => (
             <button key={m.id}
               onClick={() => m.account_number && onCopy(m.account_number, m.name)}
               disabled={!m.account_number}
-              className="w-full flex items-center justify-between gap-3 bg-[#fef5f7] hover:bg-[#ddf8f8]/40 border border-transparent hover:border-[#f5a1ad]/30 rounded-2xl p-4 transition-all text-left disabled:hover:bg-[#fef5f7]">
+              className="w-full flex items-center justify-between gap-3 bg-[#fdf6f7] hover:bg-[#fbeef0]/40 border border-transparent hover:border-[#c2183a]/30 rounded-2xl p-4 transition-all text-left disabled:hover:bg-[#fdf6f7]">
               <div className="min-w-0">
-                <div className="text-sm font-semibold text-[#2d2029] truncate">{m.name}</div>
-                <div className="text-xs text-[#8b6b73] truncate">
+                <div className="text-sm font-semibold text-[#2a0b12] truncate">{m.name}</div>
+                <div className="text-xs text-[#8a5c64] truncate">
                   {m.account_name}{m.account_number && ` · ${m.account_number}`}
                 </div>
               </div>
-              {m.account_number && <span className="text-[11px] font-bold uppercase tracking-wider text-[#e88aab] shrink-0">Copy</span>}
+              {m.account_number && <span className="text-[11px] font-bold uppercase tracking-wider text-[#8e0b21] shrink-0">Copy</span>}
             </button>
           ))}
         </div>
@@ -332,12 +332,12 @@ function AboutModal({ settings, onClose }: any) {
   return (
     <ModalShell onClose={onClose}>
       <div className="p-7 pb-10 relative">
-        <button onClick={onClose} aria-label="Close" className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#f8e1e7] hover:bg-[#f5a1ad] hover:text-white text-[#8b6b73] flex items-center justify-center">×</button>
-        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-white border border-[#f0d5dc] overflow-hidden">
+        <button onClick={onClose} aria-label="Close" className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#f8e1e7] hover:bg-[#c2183a] hover:text-white text-[#8a5c64] flex items-center justify-center">×</button>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-white border border-[#f0d8dc] overflow-hidden">
           <img src={LOGO_URL} alt="" className="w-10 h-10" />
         </div>
-        <h2 className="font-display text-2xl font-bold text-[#2d2029]">About {s.shop_name ?? "Selam"}</h2>
-        <p className="text-sm text-[#8b6b73] mt-1.5 mb-6 leading-relaxed">{s.about_text}</p>
+        <h2 className="font-display text-2xl font-bold text-[#2a0b12]">About {s.shop_name ?? "Amal"}</h2>
+        <p className="text-sm text-[#8a5c64] mt-1.5 mb-6 leading-relaxed">{s.about_text}</p>
         <div className="space-y-3">
           {s.address && <Row label="Address" text={s.address} />}
           {s.phone && <Row label="Phone" text={s.phone} href={`tel:${s.phone}`} />}
@@ -350,13 +350,13 @@ function AboutModal({ settings, onClose }: any) {
           const embed = buildMapEmbed(s.maps_url, s.address);
           if (!embed) return null;
           return (
-            <div className="mt-5 rounded-2xl overflow-hidden h-48 border border-[#f0d5dc]">
+            <div className="mt-5 rounded-2xl overflow-hidden h-48 border border-[#f0d8dc]">
               <iframe title="Location" src={embed} width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
             </div>
           );
         })()}
         {s.maps_url && (
-          <a href={s.maps_url} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-xs font-bold uppercase tracking-wider text-[#e88aab] hover:underline">Open in Google Maps →</a>
+          <a href={s.maps_url} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-xs font-bold uppercase tracking-wider text-[#8e0b21] hover:underline">Open in Google Maps →</a>
         )}
 
       </div>
@@ -366,9 +366,9 @@ function AboutModal({ settings, onClose }: any) {
 
 function Row({ label, text, href }: { label: string; text: string; href?: string }) {
   const inner = (
-    <div className="flex items-center justify-between gap-3 bg-[#fef5f7] hover:bg-[#ddf8f8]/40 rounded-2xl p-4 transition-colors">
-      <span className="text-[10px] font-bold uppercase tracking-wider text-[#8b6b73] shrink-0">{label}</span>
-      <span className="text-sm font-medium text-[#2d2029] truncate text-right">{text}</span>
+    <div className="flex items-center justify-between gap-3 bg-[#fdf6f7] hover:bg-[#fbeef0]/40 rounded-2xl p-4 transition-colors">
+      <span className="text-[10px] font-bold uppercase tracking-wider text-[#8a5c64] shrink-0">{label}</span>
+      <span className="text-sm font-medium text-[#2a0b12] truncate text-right">{text}</span>
     </div>
   );
   return href ? <a href={href} target="_blank" rel="noreferrer" className="block">{inner}</a> : <div>{inner}</div>;
@@ -391,11 +391,11 @@ function ItemModal({ item, onClose }: { item: Product; onClose: () => void }) {
           )}
         </div>
         <div className="p-7 pb-10">
-          <h2 className="font-display text-2xl font-bold text-[#2d2029]">{item.name}</h2>
-          <p className="text-[15px] text-[#8b6b73] mt-2.5 mb-5 leading-relaxed">{item.description}</p>
+          <h2 className="font-display text-2xl font-bold text-[#2a0b12]">{item.name}</h2>
+          <p className="text-[15px] text-[#8a5c64] mt-2.5 mb-5 leading-relaxed">{item.description}</p>
           <div className="flex items-center justify-between gap-4">
-            <div className="font-display text-3xl font-extrabold" style={{ color: soldOut ? "#8b6b73" : "#e88aab" }}>
-              {item.price} <span className="text-base font-bold text-[#8b6b73]">Birr</span>
+            <div className="font-display text-3xl font-extrabold" style={{ color: soldOut ? "#8a5c64" : "#8e0b21" }}>
+              {item.price} <span className="text-base font-bold text-[#8a5c64]">KSh</span>
             </div>
             {soldOut && (
               <span className="px-3 py-1.5 rounded-md text-[11px] font-extrabold tracking-[1.5px] text-white bg-red-600">SOLD OUT</span>
@@ -409,9 +409,9 @@ function ItemModal({ item, onClose }: { item: Product; onClose: () => void }) {
 
 function Toast({ msg }: { msg: string | null }) {
   return (
-    <div className={`fixed bottom-28 left-1/2 -translate-x-1/2 z-[300] px-6 py-3 rounded-full text-white font-bold text-sm flex items-center gap-2 shadow-[0_12px_28px_-6px_rgba(233,30,99,0.5)] transition-all duration-300 ${
+    <div className={`fixed bottom-28 left-1/2 -translate-x-1/2 z-[300] px-6 py-3 rounded-full text-white font-bold text-sm flex items-center gap-2 shadow-[0_12px_28px_-6px_rgba(160,10,40,0.5)] transition-all duration-300 ${
       msg ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
-    }`} style={{ background: "linear-gradient(135deg, #f5a1ad 0%, #e88aab 100%)" }}>
+    }`} style={{ background: "linear-gradient(135deg, #c2183a 0%, #8e0b21 100%)" }}>
       <span>{msg}</span>
     </div>
   );

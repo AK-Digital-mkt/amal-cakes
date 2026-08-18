@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Admin Sign In — Selam Cake Shop" },
-      { name: "description", content: "Secure admin sign-in for Selam Cake Shop." },
+      { title: "Admin Sign In — Amal Cakes &amp; Catering" },
+      { name: "description", content: "Secure admin sign-in for Amal Cakes &amp; Catering." },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -64,18 +64,18 @@ function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12" style={{ background: "linear-gradient(135deg, #ffffff 0%, #fef5f7 50%, #ddf8f8 100%)" }}>
+    <div className="min-h-screen flex items-center justify-center px-4 py-12" style={{ background: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 50%, #fbeef0 100%)" }}>
       <div className="w-full max-w-md">
         <Link to="/" className="flex items-center justify-center gap-2 mb-8 group">
-          <img src="/selam-logo.png" alt="" className="w-10 h-10 group-hover:scale-110 transition-transform rounded" />
-          <span className="font-display text-3xl font-semibold text-[#2d2029]">Selam</span>
+          <img src="/__l5e/assets-v1/5a7b27fb-f71c-43ee-96a8-7129cf8565d6/amal-logo.png" alt="" className="w-10 h-10 group-hover:scale-110 transition-transform rounded" />
+          <span className="font-display text-3xl font-semibold text-[#2a0b12]">Amal</span>
         </Link>
 
-        <div className="glass rounded-3xl p-8 shadow-[var(--shadow-elegant)] border border-[#f0d5dc]">
-          <h1 className="font-display text-2xl font-bold text-[#2d2029]">
+        <div className="glass rounded-3xl p-8 shadow-[var(--shadow-elegant)] border border-[#f0d8dc]">
+          <h1 className="font-display text-2xl font-bold text-[#2a0b12]">
             {mode === "signin" ? "Welcome back" : "Create admin account"}
           </h1>
-          <p className="text-sm text-[#8b6b73] mt-1">
+          <p className="text-sm text-[#8a5c64] mt-1">
             {mode === "signin"
               ? "Sign in to manage your bakery"
               : "The first account becomes the shop admin"}
@@ -83,19 +83,19 @@ function AuthPage() {
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
-              <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">Email</label>
+              <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">Email</label>
               <input
                 type="email"
                 autoComplete="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1.5 w-full rounded-2xl border border-[#f0d5dc] bg-white px-4 py-3 outline-none focus:border-[#f5a1ad] focus:ring-2 focus:ring-[#fadadd] transition-all"
-                placeholder="owner@selamcakes.et"
+                className="mt-1.5 w-full rounded-2xl border border-[#f0d8dc] bg-white px-4 py-3 outline-none focus:border-[#c2183a] focus:ring-2 focus:ring-[#f7dce1] transition-all"
+                placeholder="owner@amalcakes.com"
               />
             </div>
             <div>
-              <label className="text-xs font-semibold text-[#8b6b73] uppercase tracking-wider">Password</label>
+              <label className="text-xs font-semibold text-[#8a5c64] uppercase tracking-wider">Password</label>
               <input
                 type="password"
                 autoComplete={mode === "signin" ? "current-password" : "new-password"}
@@ -103,7 +103,7 @@ function AuthPage() {
                 minLength={8}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1.5 w-full rounded-2xl border border-[#f0d5dc] bg-white px-4 py-3 outline-none focus:border-[#f5a1ad] focus:ring-2 focus:ring-[#fadadd] transition-all"
+                className="mt-1.5 w-full rounded-2xl border border-[#f0d8dc] bg-white px-4 py-3 outline-none focus:border-[#c2183a] focus:ring-2 focus:ring-[#f7dce1] transition-all"
                 placeholder="At least 8 characters"
               />
             </div>
@@ -121,10 +121,10 @@ function AuthPage() {
             </button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-[#f0d5dc] text-center text-sm">
+          <div className="mt-6 pt-6 border-t border-[#f0d8dc] text-center text-sm">
             <button
               onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setError(null); }}
-              className="text-[#e88aab] font-semibold hover:underline"
+              className="text-[#8e0b21] font-semibold hover:underline"
             >
               {mode === "signin" ? "Need to create the first admin? Sign up" : "Already have an account? Sign in"}
             </button>
@@ -132,7 +132,7 @@ function AuthPage() {
         </div>
 
         <div className="mt-6 text-center">
-          <Link to="/" className="text-sm text-[#8b6b73] hover:text-[#2d2029]">← Back to the shop</Link>
+          <Link to="/" className="text-sm text-[#8a5c64] hover:text-[#2a0b12]">← Back to the shop</Link>
         </div>
       </div>
     </div>
