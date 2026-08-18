@@ -156,7 +156,7 @@ function Hero({ settings, heroImg }: { settings: any; heroImg: string }) {
           {settings?.hero_subtitle ?? "Handcrafted with love"}
         </div>
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-[#2a0b12]">
-          {settings?.hero_title ?? "Amal Cakes &amp; Catering"}
+          {settings?.hero_title ?? "Amal Cakes & Catering"}
         </h1>
         <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-[#5a3a41] font-medium">{settings?.tagline ?? "Sweetness, delicately made."}</p>
       </div>

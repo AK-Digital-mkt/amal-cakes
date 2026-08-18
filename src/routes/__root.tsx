@@ -60,9 +60,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Amal Cakes &amp; Catering — Handcrafted Luxury Cakes" },
-      { name: "description", content: "Amal Cakes &amp; Catering — boutique bakery of premium handcrafted cakes, cupcakes and pastries baked with love." },
-      { property: "og:title", content: "Amal Cakes &amp; Catering — Handcrafted Luxury Cakes" },
+      { title: "Amal Cakes & Catering — Handcrafted Luxury Cakes" },
+      { name: "description", content: "Amal Cakes & Catering — boutique bakery of premium handcrafted cakes, cupcakes and pastries baked with love." },
+      { property: "og:title", content: "Amal Cakes & Catering — Handcrafted Luxury Cakes" },
       { property: "og:description", content: "Boutique bakery of premium handcrafted cakes, cupcakes and pastries." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

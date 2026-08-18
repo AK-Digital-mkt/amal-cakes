@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Admin Sign In — Amal Cakes &amp; Catering" },
-      { name: "description", content: "Secure admin sign-in for Amal Cakes &amp; Catering." },
+      { title: "Admin Sign In — Amal Cakes & Catering" },
+      { name: "description", content: "Secure admin sign-in for Amal Cakes & Catering." },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -25,7 +25,7 @@ function Overview() {
     <div>
       <div>
         <h1 className="font-display text-3xl md:text-4xl font-bold text-[#2a0b12]">Welcome back</h1>
-        <p className="mt-1 text-[#8a5c64]">{settings.data?.shop_name ?? "Amal Cakes &amp; Catering"} — dashboard overview.</p>
+        <p className="mt-1 text-[#8a5c64]">{settings.data?.shop_name ?? "Amal Cakes & Catering"} — dashboard overview.</p>
       </div>
 
       <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
