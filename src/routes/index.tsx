@@ -36,6 +36,13 @@ function hashString(s: string): number {
   return Math.abs(h);
 }
 function fallbackFor(item: { id: string; name: string }): string {
+  const n = item.name.toLowerCase();
+  if (/cupcake|muffin/.test(n)) return cakeCupcake;
+  if (/cheesecake/.test(n)) return cakeCheesecake;
+  if (/chocolate|forest|fudge|brownie/.test(n)) return cakeChocolate;
+  if (/pastry|pastries|croissant|tart|tray|catering|platter|snack/.test(n)) return cakeMint;
+  if (/wedding|tier|celebration|anniversary/.test(n)) return cakeVanilla;
+  if (/velvet|strawberry|berry|red/.test(n)) return cakeStrawberry;
   return FALLBACK_IMAGES[hashString(item.id + item.name) % FALLBACK_IMAGES.length];
 }
 function buildMapEmbed(mapsUrl: string | null | undefined, address: string | null | undefined): string | null {
